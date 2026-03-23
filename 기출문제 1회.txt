@@ -1,0 +1,462 @@
+기출문제 1회
+
+
+1. 아래에서 설명하는 것은 무엇인지 쓰시오
+* 소프트웨어 개발에서 발생하는 반복적인 문제들의 해결을 위한 설계 패턴을 일반화한 것이다
+* 기능 및 알고리즘, 반복적인 작업 등에 적용할 수 있다.
+* Commande, Iterator, Mediator, Memento 등이 있다.
+
+답 : 행위 패턴
+
+2. 노드들에 의해 자율적으로 구성되는 네트워크로, 무선 인터페이스가 가지는 통신 거리상의 제약을 극복할 수 있어 긴급 부고, 깁급 회의, 전쟁터에서의 군사 네트워크 등에 응용할 수 있는 네트워크는 무엇인지 쓰시오
+
+애드훅 네트워크
+
+3. 트랙잭션의  작업 결과가 최종 반영되기 전까지의 작업은 메모리 영역에서 진행되므로 복구가 가능하다. 이 복구를 하기 위한 명령어는 무엇인지 쓰시오
+
+Roll back
+
+
+4. 아래 SQl 문장은 학번을 기준으로 두 테이블을 합친다, 빈칸에 알맞은 키워드를 쓰시오
+- SELECT 학생명, 학과 FROM AI JOIN DB [빈칸] (학번);
+
+using
+
+
+5. 아래와 같은 코드의 진리표가 존재할때, 결정 커버리지를 만족할 수 있는 테스트 케이스 조합을 쓰시오(조합은 번호 1~3으로 쓰시오
+
+if(a>5 && b<6)
+	printf("X");
+else
+	printf("0");
+
+a > 5    b<6   &&
+true	true	true		1    a = 6 , b= 5
+true	false	false		2	a= 6, b= 6
+false	 x	false		3	a=4, b=0
+
+
+6. 
+#include <stdio.h>
+void fn(int *a, int *b) {
+	int t;
+	t = *a;
+	*a = *b
+	*b = t;
+}
+
+int main(){
+	int ar[] = {10, 20, 30 , 40, 50}:
+	int i=0, k=4;
+	while (i<k) {
+		fn(ar+i++, ar+k--);
+	}
+	for (i = 0; i < 5; i++)
+		printf("%d", ar[i]);
+	return 0;
+}
+
+50 40 30 20 10
+
+
+7.
+#include <stodi.h>
+struct p {
+	int x;
+	int y;
+};
+union x{
+	struct p *a
+	struct p *b;
+};
+int main() {
+	struct p p1 = {10, 20};
+	struct p p2 = {30, 40};
+	union x x1;
+	x1.a = &p1;
+	x1.b = &p2;
+	printf("%d", x1.a->x);
+	return 0 ;
+}
+
+
+
+
+
+
+8.
+#include <stdio.h>
+struct p {
+	int data; 
+	struct p *n;
+};
+int main() {
+	struct p p1, p2, p3, p4;
+	p1. data = 10;
+	p1.n = &p2;
+	p2.data = 20;
+	p2.n = &p3;
+	p3.data=30;
+	p3.n = &p4;
+	p4.data = 40;
+	printf("%d", p1.n->n->data);
+	return 0;
+}
+
+30
+
+
+9. 아래는 네트워크 프로토콜에 대한 설명이다. 빈칸에 알맞은 용어를 쓰시오
+[ㄱ]: 인터넷 프로토콜의 불안정함을 개선하여 안정적으로 데이터를 송신하기위해 다양한 방법을 제공하는 신뢰성 있는 연결형 프로토콜이다.
+[ㄴ]: 스트리밍 서비스처럼 하나의 정보를 다수의 인원에게 송신해야 하는 경우에 적합한 비연결성 프로토콜이다.
+ㄱ: TPC
+ㄴ:UDP
+
+10. 아래의 설명을 읽고, OSI 7 계층 중 해당하는 계층을 쓰시오
+* 비트 단위로 수신되는 데이터의 오류 및 흐름을 제어하여 데이터의 안정성을 높인다.
+* MAC 주소를 통해 통신하며 프레임 단위로 데이터를 전송한다.
+* 브리지, 스위치 등의 장비가 이 계층에 해당된다.
+답: 데이터 링크 계층
+
+11. 소프트웨어 컨테이너 안의 응용 프로그램들의 배치 및 배포를 자동화하는 오픈 소스 엔진을 무엇이라 하는지 쓰시오
+
+답 : Docker
+
+
+12. 아래 Python 코드의 수행 겨로가를 쓰시오
+a = 10, 20, 30, 409
+a[:2], a[2:] = a[::2],  a[1::2]
+pritnf(sum(a[1:3]))
+
+
+
+
+
+13. 
+def fn(a):
+	t= type(a)
+	if t == type (100):
+		return 20
+	if t == type("300"):
+		return 25
+	else :
+		return 30
+
+print(fn("100"))    문자
+printf(fn(300))	정수
+printf(fn(20.0))  
+
+25
+20
+30
+
+
+14. 3개의 빈 페이지 프레임과 [A,B,C,D,B,A,B,A,C,A]의 참조열이 있을 때, LRU 페이지 교체 알고리즘을 적용할 경우 발생하는 페이지 부재
+
+6
+
+
+15. 정보처리 기사 응시생 100명 중, 20대는 45명, 30대는 25명, 40대 이상은 30명으로 조사되었다
+아래와 같은 sql 문장이 수행되었을때, 나타날 수 있는 튜플의 최대 개수
+
+
+SELECT * FROM 응시생 정보 WHERE 나이 BETWEEN 25 AND 35 :
+
+
+
+
+70
+
+
+16아래와 이미지 같이 하나의 사물이 다른사물에 대해상위, 하위 관계를 가지는 것을 표현하는 관계는 무엇인지 쓰시오
+컴활 -> 자격증 <- 정처기
+워드->
+
+일반화 관계
+
+
+17. 아래 SQL 문장은 중복 없는 인덱스를 생성한다. 빈칸에
+CREATE [빈칸] INDEX idx_score ON score(...);
+
+unique
+
+
+18. 
+public class Main {
+	public static void main(String[] agrs) {
+		String a = "book";
+		Srting b = "Book";
+		String c = "book";
+		String e = new String("book");
+		System.out.println(a==b);
+		System.out.println(a==e);
+		System.out.println(a.equals(c));
+	}
+}
+
+false
+false
+true
+
+
+
+
+
+
+
+
+
+
+19.
+
+class A{
+	int a = 10;
+	int get(){
+		return a+5;
+	}
+}class B{
+	int b =3 ;
+	int get(){
+		return b*5;
+	}
+}public class Main{
+	public static void main(String[] args) {
+		A x = new A();
+		B y = new B();
+		System/out.println(x.a+y.get());
+	}
+}
+
+25
+
+
+20. 아래 수행결과
+class A {
+	int a = 10;
+	int mth () {
+		return 20;
+	}
+}class B extends A {
+	int b = 20;
+	int mth () {
+		return a*5;
+	}
+}public class Main {
+	public static void main(String[] args) {
+		B k = new B();
+		System.out.println(k.mth());
+	}
+}
+
+50
+
+기출 문제 2회
+
+
+1. 
+public class Main{
+	static void fn(int[] a, int[] b){
+		if(a==b) System.out.print("0");
+		else Sysem.out.print("X");
+	}
+	static void fn(int a, int b) {
+		if(a==b) System.out.print("0");
+		else System.out.print("X");
+	}
+	public static void main(String[] args) {
+		int [] ar1 = new int []{1, 2, 3};
+		int[] ar2 = new int[]{1,  2, 3};
+		int [] ar3 = new int[] {1, 2,3,4};
+		fn(ar1, ar2);
+		fn(ar2, ar3);
+		fn(ar1[1], ar3[1]);
+	}
+}
+
+XXO
+
+2.
+* 정규화된 노리 데이터 모델을 시슴테 운영의 단순화를 위해 중복, 통합, 분할 등을 수행하는 데이터 모델링 기법이다.
+* 완벽한 수준의 정규화를 진행하면 일관성과 안정성은 증가하지만 성능이 저하될 수 있으므로 성능 향상을 위해 테이블을 통합, 분할 추가하는 과정이다
+반정규화
+
+3.<사원 테이블은 사원번호, 이름 거주지 부서 속성으로 구성되어 있다. 아래는 지시사항과 그에 맞는 SQL 문장이다
+
+상황 : <사원>테이블에 기획부 박영진 1111 데이터 추가
+SQL : [ㄱ] 사원(사원번호, 이름, 부서) VALUE('1111','박영진','기획부');
+상황 :<사원> 테이블에서 "홍길동 삭제
+SQL  : DELETE FROM 사원 [ㄴ];
+상황 : <사원>테이블에서 "홍길동"의 거주지를 " 인천"으로 변경
+SQL : UPDATE [ㄷ] where 이름 = "홍길동
+
+INSERT TO
+
+ WHERE 이름 = "홍길동"
+
+사원 SET 거주지 = "인천"
+
+4. 아래 수강생> 테이블의 Cardinality와 Degree를 쓰시오
+<수강생>
+학번	이름	거주지	연락처
+111	가희	서울		0101234
+222	나연	인천		0101235
+333 	상철	인천		0101236
+444	영진	경기		0101237
+
+4
+4
+		
+5. 
+* 보안에 취약한 구조를 가진 IP를 개선하기 위해 국제 인터넷 기술 위원회에서 설계한 표준이다.
+* IPv4에서는 보안이 필요한 경우에만 선택적으로 사용하였지만 IPv6부터는 기본 스펙에 포함된다.
+* IP계층에서의 보안성 제공을 위해 AH, ESP, IKE 프로토콜로 구성된다.
+* 동작 모드는 전송 모드와 터널모드로 나뉜다.
+- 전송 모드 : IP헤더를 제외한 IP패킷의 페이드로만을 보호
+- 터널 모드 : IP 패킷 전체를 보호
+
+IPSEC
+
+6. 응집도를 찾아쓰시오
+* 모듈의 기능 수행으로 인한 출력 결과를 다른 모듈의 입력값으로 사용하는 경우의 응집도
+Communication, Procedural, Temporal, Logical, Functional, Sequential
+
+Sequential
+
+7. 내부 구현을 노출시키지 않고 집약된 객체에 접근하고 싶은 경우에 적용하는 디자인 패턴을 찾아 쓰시오
+*Singleton, Adapter, Iterator, Factory Method, Composite, Observer, Abstract Factory, Proxy, Strat - egy, Builder, Decorator, Command
+
+Iterator
+
+8. 
+#include <stdio.h>
+int main() {
+	char s[15] = "ADCDBCCAADBDBAB"
+	char *a = "DB";
+	char *b = "AD";
+	int i, c, ac=0, bc=0;
+	for(i=0; i<15; i++) {
+		for(c=0; c<2; c++) {
+			if(s[i+c]!=a[c]) break;
+		}
+		if (c==2) ac++;
+		for(c=0; c<2; c++) {
+			if(s[i+c]!=b[c]) break;
+		}
+		if(c==2) bc++;
+	}
+	printf("%d %d", ac, bc);
+	return 0;
+}
+
+
+3 2
+
+
+
+
+
+
+9. 아래 설명을 읽고, 해당하는 패킷 교환 방식을 쓰이오
+ㄱ : 제어 패킷을 통해 논리적 전송 경로를 확보한 뒤 데이터 패킷을 전송하는 방식으로 패킷의 전송 순서는 바뀌지 않고 그대로 전송되며, 체증이 비교적 많이 발생한다.
+ㄴ : 논리적 경로의 확보 없이 자유롭게 데이터 패킷을 전송하는 방식으로 제어 패킷이 필요 없고, 패킷의 전송 순서는 바뀔수 있으며, 체중이 비교적 적게 발생한다.
+ ㄱ : 가상회선방식
+ㄴ : 데이터그램 방식
+
+10.  switch문
+
+ 12
+
+11.
+
+5
+
+12.
+public class Main{
+	public static void main(String[] args) {
+		int [] n = {0,1,2,3,4,5,6,7,8,9};
+		int a=0, b=0;
+		for(int i =0; i < 10; i++) {
+			if((n[i]/2)%2==0 || n[i]%2 ==0)
+				a+=n[i];
+			else
+				b+=[i];
+		}
+		System.out.println(a+"/"+b);
+	}
+}
+
+35/10
+
+
+
+13. RIP는 소규모 네트워크를 대상으로 수행되는 라우팅 프로토콜이다. 경로를 산출하는 기준이 거리값(홉:경로상의 라우터수)하나로, 속도 등이 고려되지 않아 실제로는 최적의 경로가 아닌 경우가 많다
+아래의 네트워크에서 F노드로 갈수 있는 경로를 RIP 방식으로 구하시오 
+경유수가 적은곳으로 걸리는 시간은 상관하지 않음
+
+14. 
+* DES를 대체하는 미국의 표준 대칭키 블록 알고리즘이다.
+* 128bit의 블록 크기와 가변 길이 키(128/192/256)를 가진다
+* 키의 길이에 따라 10/12/14 라운드를 진행한다.
+* 메모리를 적게 사용하고 속도가 빨라 모바일 장비에서도 사용할 수 있다.
+
+AES
+15..C  
+#include <stdio.h>
+int main() {
+	int ar[3][3] = {1,2,3,4,5,6,7,8,9};
+	int *p[2] = {ar[1],ar[2]};
+	printf("%d", p[0][1] + *(p[0]+2) + **p);
+	return 0; 
+}
+
+16. 아래와  같은 프로세스, 도착시간, 실행시간이 존재할떄, 평균대기시간을 쓰시오
+소수점 자리까지
+프로세스	도착시간	실행시간
+p1		0		10
+p2		2		6
+p3		4		4
+
+4
+
+17. JAVA
+public class Main{
+	public static void main(String[] args) {
+		String s = "acsvsdcxcd";
+		int [] v = new int[26];
+		for(int i = 0; i < 10 ; i ++ ) {
+			char c = s.charAt(i) ;
+			if(v[c-'a']==0 {
+				System.out.print(c);
+				v[c-'a']=1;
+			}
+		}
+	}
+}
+
+
+18 아래에서 설명하는 결합도는 무엇인지 쓰시오
+* 전달 대상 모듈에게 값만 전달하는 것이 아니라 제어 요소를 함께 전달하는 경우이다.
+* 전달되는 제어 요소에 따라 대상 모듈의 처리 절차가 달라진다.
+
+제어결합도
+
+19. C
+
+20
+
+20. JAVA
+
+
+4
+split 문자기준으로 가르기
+
+
+
+
+
+
+
+
+
+
+
