@@ -1,0 +1,131 @@
+1. Python
+
+★ 집합(set)
+- 집합은 순서가 없고 중복을 허용하지 않는 자료형
+아래와 같이 사용가능
+
+# 집합생성
+fruit_basket = {"apple","banana","grape"}
+
+# 집합에 요소 추가
+fruit_basket.add("orange")
+pring(fruit_basket) -> 출력 : {"apple","banana","grape","orang"}
+
+#집합에서 요소 제거
+fruit_basket.remove("banana")
+print(fruit_basket)  -> 출력 : {"apple", "grape","orang"}
+
+#집합 업데이트
+more_fruit = [kiwk, pear, apple]
+fruit_basket.update(more_fruits)
+print(fruit_basket)  -> 출력 : {"apple", "grape","orang","kiwi","prear"}
+
+★ 비트 연산자 
+2진수 형태로 데이터를 다룰 때 사용하세요
+비트 연산자를 이해하기 쉬운 예시로는 "전등 스위치"를 들수 있어요
+전등 스위치는 켜짐(1)과 꺼짐(0). 두가지 상태만 있어요
+켜짐은 True, 꺼짐은 False의미
+
+AND 연산(&)은 두개의 스위치가 모드 켜저 있을때
+OR 연산 (|)은 두개의 스위치중 하나라도 켜져 있을떄
+XOR 연산(^)은 두개의 스위치중 하나만 켜져있을때(결과가 달라야함)
+
+아래와 같이 사용 가능
+
+#AND 연산
+result = 5 & 3   101 & 011 = 001
+print(result) -> 1
+
+# OR 연산
+result = 5 | 3	101 | 011 =111
+print(result) -> 7
+
+# XOR 연산
+result = 5 ^ 3 101 ^ 011 =110
+print (result) -> 6
+
+#비트 시프트 연산
+왼쪽으로 한칸 이동은 맨 오른쪽에 0하나를 추가한다는 의미
+result = 5 << 1 	->	 101 << 1 =1010
+print(result) -> 출력 10
+
+오른쪽으로 한칸 이동은 맨 오른쪽 값을 지운다는 의미
+여기서 2진수 010과 10은 같은 2를 뜻함
+result = 5 >> 1 	-> 101 >> 1 = 010
+print(result) 	-> 출력 2
+
+
+★ split()
+문자열을 지정된 구분자를 기준으로 분할하여 리스트로 반환합니다
+기본구분자는 공백입니다
+
+#공백을 기준으로 문자열 분할
+sentence = "Hello world! How are you?"
+words = sentence.split() -> sentence.slit("")과 동일한 표현
+print(words) -> 출력 : ['Hello','world!','How','are','you?']
+
+★ 슬라이싱 (slicing)
+리스트나 문자열에서 일부분을 잘라내는 것을 말해요
+Index의 시작점은 0부터 시작해요
+끝점의 index는 자를때 포함하지 않아요
+[0:5] 는 첫 번째 문자분터 시작해서 0,1,2,3,4까지의 문자를 뜻해요
+
+처음부터 자르고 싶으면 시작점을 생략
+[:5]
+끝까지 자르고 싶으면 끝점을 생략
+[8:]
+
+
+#문자열 슬라이싱
+message = "Hello, World!"
+print(message[0:5]  	-> "Hello"
+print(message[:5]) 	-> "Hello"
+print(message[7:])	-> "World!"   
+print(message[7: 12])	-> "World"   
+print(message[::2])	-> "Hlo ol!"  -> 홀수번쨰 문자열 추출
+
+ 
+# 리스트 슬라이싱
+number = ["a", "b", "c", "d", "e"]
+print(numbers[1:4] -> [b,c,d]
+print(numbers[:3] -> [a,b,c,]
+print(numbers[3:] -> [d,e]
+print(numbers[::2] -> [a,c,e]
+
+
+#문자열 포맷팅
+문자열 내에 특정 값을 삽입하는 방법이에요
+% 연산자를 이용하여 문자열 포맷팅을 할 수 있어요
+
+# % 연산자
+name "Alice"
+age = 25
+print("My name is %s. I'm %d year old." % (name, age))
+my name is alice. i'm 25 year old
+
+★ map()
+리스트나 튜플 등의 이터러블 객체의 각 요소에 함수를 적용하여 새로운 이터러블 객체를 반환합니다
+map()은 원본 데이터를 변경하지 않고 새로운 데이터를 생성합니다
+
+numbers=[1,2,3,4,5]
+
+#lambda 함수를 사용하여 각 요소에 10을 더하기
+numbers = [1,2,3,4,5]
+add_ten = map (lambda x: x + 10, numbers)
+print(list(add_ten)) - > 출력 [11,12,13,14,15]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
