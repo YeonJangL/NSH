@@ -1,0 +1,175 @@
+[문제유형] 상속
+★ 상속 (Inheritance)
+상속은 부모 클래스가 가진 특성(변수)과 행동(메서드)을 자식 클래스가 물려받는 것을 말해요. 마치 부모님의 유전자를 물려받아 닮은 것처럼, 자바에서는 클래스도 다른 클래스의 특성을 물려받을 수 있어요
+
+class Parent {
+	void sayHello() {
+		system.out.println("Hellow, I'm a parent!");
+	}
+}
+
+class Child extends Parent {
+	// Child 클래스는 Parent 클래스의 sayHello 메소드를 상속받았어요.
+}
+
+Child 클래스는 Parent 클래스로부터 sayHello 메서드를 상속받으니, chile 객체를 만들어 sayhello를 호출하면 "Hello, I'm a Parent!"라는 메시지가 출력될 거예요
+
+★ 오버라이딩(overiding)
+오버라이딩은 상속받은 메서드를 자식 클래스에서 재정의하는 것을 말해요
+자식 클래스가 상속받은 메서드를 마음에 들게 바꾸고 싶을 떄 사용해요
+
+class Child extends Parent {
+	void sayHello() {
+		System.out.println("Hrllo, I'm a child!");
+	}
+}
+여기서 Child 클래스는 Parent의 sayHello 메서드를 오버라이딩해서 "Hello, I'm a Child!"라는 새 메시지를 출력하도록 변경했어요
+
+
+★ 오버로딩(voerloading)
+오버로딩은 같은 이름의 메서드를 여러 개 가지되, 매개변수의 유형이나 개수를 다르게 하는 것을 말함 이렇게 하면 같은 일을 하는 메서드라도 조금씩 다른 상황에서 사용할 수 있어요
+
+class MathOperations {
+	int sum(int a, int b) {
+		return a + b;
+	}
+	
+	// 오버로딩된 sum 메서드, 매개변수의 개수가 다름.
+	int sum(ina a, int b, int c) {
+		return a + b + c;
+	}
+}
+
+MathOperations 클래스에는 sum이라는 메서드가 두 개 있어요. 하나는 두 숫자를 더하고, 다른 하나는 세 숫자를 더해요. 매개변수가 다르기 때문에 두 메서드는 서로 다른 버전으로 존재할 수 있어요.
+
+
+ [기출예제] 23년3회실기(난이도: ★★☆)
+다음은Java코드이다.올바른출력결과를작성하시오
+
+BDCDD
+
+★ super~ : 부모의 메소드를 호출
+★ this.~ 현재 실행 중인 나의 메소드 호출 / 생략도 가능 -> draw() = this.draw()
+super와 this에 대한 자세한 설명은 다음장
+
+
+★ this 키워드
+this는 현재 객체, 즉 메서드나 생성자를 호출하는 객체를 가리키는데 사용돼요
+같은 이름의 클래스 변수와 메서드 매개변수가 충돌할 때 이를 구별하기 위해 사용되기도 해요
+ 클래스 내의 다른 생성자를 호출할 때도 this()를 사용할 수 있어요
+
+class Flower {
+	private String name;
+	Flower(String name)
+		this.name = name ;   //여기서 'this.name''은 클래스 변수를, 'name'은 생성자의 매개변수를 가리켜요
+	}
+
+	void printName() {
+		System.out.println(this.name);  // 'this'로 클래스 변수 'name'에 접근해여
+	}
+}
+
+여기서 this.name은 클래스의 name 변수를 참조하고, 단순히 name은 생성자로 전달된 매개변수를 참조해요
+
+★ super 키워드 
+super는 부모 클래스를 가리키는 데 사용되며, 부모 클래스의 변수의 변수나 메서드, 생성자에 접근할 때 사용해요 자식 클래스에서 오버라이드한 부모 클래스의 메서드를 호출하고 싶을 때 super를 사용해요
+
+class Plant {
+	String type = "Plant";
+	
+	void printType() {
+		System.out.println(this.type); // 'this'로 자신의 type 변수에 접근해여
+	}
+}
+
+class Flower extends Plant {
+	String type = "Flower";
+	
+	void printType() {
+		super.printType();  // 'super'로 부모클래스의 printType 메서드를 호출해요
+		System.out.println(this.type); // 'this'로 자신의 type 변수에 접근해요
+	}
+}
+
+Flower 클래수에서 super.printType()은 Plant 클래스의 printType 메서드를 호출하고, this.type은 Flower 클래스 자신의 type 변수를 참조해요
+
+[기출예제] 20년2회실기(난이도: ★☆☆
+a=10
+
+
+[기출예제] 21년2회실기(난이도: ★☆☆
+11
+
+★ extends
+class 자식 extends 부모의 형태로 사용해요
+ 부모를 상속 받은 자식은 변수 및 메소드를 사용할 수 있고, 오버라이드를 통해 내 코드로 수정해서 사용할 수 있어요
+
+자식 코드에서 부모의 메소드를 호출 하고 싶을 때는 super.메소드명으로 사용할 수 있어요
+
+
+[기출예제] 23년1회실기(난이도: ★★☆
+
+
+★ 멤버변수는 참조 변수의 타입을 따르고, 함수는 실제 객체의 타입을 따라요
+
+
+★ 생성자는 항상 부모->자식 순으로 실행돼요
+1. 생성자는 항상 부모-> 자식 순으로 실행돼요
+2. show()는 오버라이딩된 자식 메서드가 호출돼요
+3. static 변수 total은 클래스 전체에서 하나만 돼요
+
+★ 상속 관계에서 생성자 호출 키워드를 명확히 구분해야 함
+- super() : 부모 클래스의 생성자를 호출할 때 사용
+- this(): 같은 클래스 내의 다른 생성자를 호출할 때 사용함
+- super : 부모 클래스의 멤버 변수나 메소드를 참조할 때 사용함 (예 : super.x)
+- this: 자기 자신의 멤버 변수나 메소드를 참조할 때 사용(예: this.x)
+
+
+
+★ abstract
+자바에서 추상 클래스란, 완전하지 않은 '미완성 설계도' 같은 것이에요. 직접적으로 객체를 만들 수는 없지만, 다른 틀래스들이 상속받아 완성해야 하는 기본 틀을 제공해요. 이 추상 클래스를 추상 메서드를 포함할 수 있어요. 추상 메서드는 실행할 구체적인 코드가 없고, 그저 메서드의 이름, 입력값, 반환 타입만 정의돼 있죠, 상속받는 클래스는 이 추상 메서들을 반드시 구현해야 함
+
+예를 들어, 모든 차에는 주행기능이 있지만, 각기 다른 차의 주행 방식은 조금씩 다를수 있음, 이때 차를 추상 클래스로 생각하고 ' 주행 ' 기능을 추상 메서드로 두면, 각차는 자신의 방식대로 주행 메서드를 구현하게 됨
+
+abstract class Car{
+	abstract void drive(); // 추상메서드 : 어떻게 주행할지는 여기서 정의 x
+	
+	void startEngine() {
+		system.out.println("엔진이 켜졌어요!");
+	}
+}
+
+class Sedan extends Car {
+	void drive() {
+		system.out.printl("매끄럽게 도로를 주행") // 주행에 대한 구체적인 구현이 여기에 옴
+	}
+}
+
+class Truck extends Car {
+	void drive() {
+		System.out.println("강력하게 짐을 실고 달림"); // 트럭에 맞게 주행을 다르게 구현
+	}
+}
+
+여기서 Car는 추상 클래스로서, drive 메서드를 추상 메서드로 가지고 있음. Sedan과 Truck은 Car 클래스를 상속받아 dirve 메서드를 각자의 방식으로 구현하죠
+Car 클래스는 직접 new Car()로 객체를 만들 수 없지만, Sedan과 Truck은 실제 사용 가능한 차들이 됨
+
+
+★ abstract
+완성(구현)되지 않은 클래스나 메서드를 지정할 때 사용되며, 이를 상속받은 클래스에서 완성해야 합니다
+
+★ 오버라이드
+상속받은 클래스에서 부모 클래스의 메서드를 재정의하여 새로운 기능으로 바꾸는 것이에요
+
+★ 오버로딩
+같은 이름의 메서드를 매개변수만 다르게해서 여러개 만드는 것이에요 이름이 같더라도 매개변수의 타입이나 매개변수의 개수가 다르면 다른 메소드처럼 사용할 수 있어요
+
+
+
+
+문제유형 인터페이스
+
+★ interface
+추상클래스와 정말 유사하게 '구현되지않은' 메서드를 미리 선언하고, 이를 상속받은 클래스에서 완성해야 합니다. 사실, 여기서는 interface의 개념을 모르더라도 크게 문제 풀이 지장이 없어요
+그냥 추상 클래스와 비슷하게 인터페이스를 상속받은 클래스는 인터페이스가 가진 메소드를 구현해야 한다는 개념만 알고 넘어감
+추상클래스와 차이점. 추상 클래스는 멤버 변수를 가질수 있고, 인터페이스는 멤버 변수를 가질수 없음
